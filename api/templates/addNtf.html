@@ -1,0 +1,133 @@
+{% extends 'layout.html' %}
+{% block content %}
+<section class="text-gray-500 body-font relative main-section">
+    <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-row justify-center w-full mb-12">
+          <img src="../static/images/logoUniversityWhite.png" style="width: 250px;object-fit: contain;">
+        </div>
+        <form method='POST' action="/upload" enctype="multipart/form-data">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              <ul class="flashes">
+              {% for category, message in messages %}
+                <li class='{% if category == "success" %} w-full mx-auto mb-4 p-2 border-2 border-green-900 rounded text-green-900 bg-green-400 font-bold opacity-50
+                {% else %}
+                  w-full mx-auto mb-4 p-2 border-2 border-red-900 rounded text-red-900 bg-red-400 font-bold opacity-50
+                {% endif %}
+                '>{{ message }}</li>
+              {% endfor %}
+              </ul>
+            {% endif %}
+          {% endwith %}
+            <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                <div class="flex flex-wrap -m-2">
+                  <div class="p-2 w-full">
+                    <div class="relative">
+                      <input type="text" 
+                      id="title" name="title"
+                      placeholder="Notification Title" 
+                      class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    </div>
+                  </div>
+                  <div class="p-2 w-full">
+                    <div class="relative">
+                      <select name="category" class="bg-gray-800 border 
+                      border-gray-700 text-white focus:border-indigo-500 
+                      text-base block appearance-none w-full 
+                      hover:border-gray-500 px-4 py-2 pr-8 rounded shadow 
+                      leading-tight focus:outline-none focus:shadow-outline">
+                        <option value="general">General</option>
+                        <option value="exam">Exam</option>
+                        <option value="admission">Admission</option>
+                    </select>
+                    </div>
+                  </div>
+                  <div class="p-2 w-full">
+                    <div class="w-1/2 text-lg">
+                      Notification Pdf: 
+                    </div>
+                    <div class="relative">
+                      <input id="pdf" 
+                      type="file"
+                      name="pdf" 
+                      accept="application/pdf">
+                    </div>
+                  </div>
+                  <div class="p-2 w-full">
+                    <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" style="background-color: #008dc1d1;">Submit</button>
+                  </div>
+                </div>
+              </div>
+        </form>
+    </div>
+</section>
+<!--NOTIFICATION LIST SECTION-->
+<section class="flex text-gray-500 body-font overflow-hidden" style="background-color: #000;">
+  <div class="w-1/3 container px-12 py-24 mx-auto">
+      <div class="w-full mx-auto mb-20 text-2xl text-center">
+          General Notification
+      </div>
+      <div class="-my-8">
+        {% for gen in general %}
+        <div class="px-4 py-8 flex flex-wrap md:flex-nowrap border-b-2 border-gray-700">
+          <div class="md:flex-grow">
+            <h2 class="text-2xl font-medium text-white title-font mb-2">{{gen.title}}</h2>
+            <a href='{{url_for("data.get_pdf",pdf=gen.doc_link)}}' target="_blank">
+              <p class="leading-relaxed text-blue-300 cursor-pointer mb-4">{{gen.doc_link}}</p>
+            </a>
+            <a href='{{url_for("data.delete_ntf",title=gen.title)}}'">
+              <button type="button" class="btn btn-outline-danger">Delete</button>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+  </div>
+  <div class="w-1/3 container px-12 py-24 mx-auto">
+    <div class="w-full mx-auto mb-20 text-2xl text-center">
+        Exam Notification
+    </div>
+    <div class="-my-8">
+      {% for exm in exam %}
+      <div class="px-4 py-8 flex flex-wrap md:flex-nowrap border-b-2 border-gray-700">
+        <div class="md:flex-grow">
+          <h2 class="text-2xl font-medium text-white title-font mb-2">{{exm.title}}</h2>
+          <a href='{{url_for("data.get_pdf",pdf=exm.doc_link)}}' target="_blank">
+            <p class="leading-relaxed text-blue-300 cursor-pointer mb-4">{{exm.doc_link}}</p>
+          </a>
+          <a href='{{url_for("data.delete_ntf",title=exm.title)}}'>
+            <button type="button" class="btn btn-outline-danger">Delete</button>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="w-1/3 container px-12 py-24 mx-auto">
+    <div class="w-full mx-auto mb-20 text-2xl text-center">
+        Admission Notification
+    </div>
+    <div class="-my-8">
+      {% for admm in adm %}
+      <div class="px-4 py-8 flex flex-wrap md:flex-nowrap border-b-2 border-gray-700">
+        <div class="md:flex-grow">
+          <h2 class="text-2xl font-medium text-white title-font mb-2">{{admm.title}}</h2>
+          <a href='{{url_for("data.get_pdf",pdf=admm.doc_link)}}' target="_blank">
+            <p class="leading-relaxed text-blue-300 cursor-pointer mb-4">{{admm.doc_link}}</p>
+          </a>
+          <a href='{{url_for("data.delete_ntf",title=admm.title)}}'>
+            <button type="button" class="btn btn-outline-danger">Delete</button>
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<script>
+  function OpenPdf({pdf_link}){
+    window.open(`/api/${pdf_link}`);
+  }
+</script>
+<!--NOTIFICATION LIST SECTION END-->
+{% endblock %}

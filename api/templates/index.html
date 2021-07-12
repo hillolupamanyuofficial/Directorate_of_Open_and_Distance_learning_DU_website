@@ -1,0 +1,97 @@
+{% extends 'layout2.html' %}
+{% block content %}
+
+<!-- NOTIFICATIONS -->
+<div class="container my-5 text-center">
+	<div class="ntf-heading">NOTIFICATIONS</div>
+	<div class="card-deck mt-5">
+	  <div class="card">
+		<div class="card-body">
+		  <h3 class="card-title">General</h3>
+		</div>
+		<div>
+			<marquee class="ntf" width="100%" direction="up" height="200px" scrollamount="1">
+				{% for gen in general %}
+					<li style="list-style-type: none;width: 80%;margin: auto;text-align: center;
+					margin-bottom: 10px;">
+						<a href="{{url_for('data.get_pdf',pdf=gen.doc_link)}}" target="_blank"
+						style="color: #6091c1;font-family: 'Open Sans', 'Helvetica Neue', sans-serif;font-weight: 600;
+						text-decoration: none;font-size: 16px;display:inline-flex">{{gen.title}}
+						<img src="../static/images/newicon.gif" alt="new" class="pull-right"
+						style="margin-left: 10px;width: 30px; object-fit: contain;">
+						</a>
+					</li>
+				{% endfor %}
+			</marquee>
+		</div>
+	  </div>
+	  <div class="card">
+		<div class="card-body">
+		  <h3 class="card-title">Examination</h3>
+		</div>
+		<div>
+			<marquee class="ntf" width="100%" direction="up" height="200px"scrollamount="1">
+				{% for exm in exam %}
+					<li style="list-style-type: none;width: 80%;margin: auto;text-align: center;
+					margin-bottom: 10px;">
+						<a href="{{url_for('data.get_pdf',pdf=exm.doc_link)}}" target="_blank"
+						style="color: #6091c1;font-family: 'Open Sans', 'Helvetica Neue', sans-serif;font-weight: 600;
+						text-decoration: none;font-size: 16px;display:inline-flex">{{exm.title}}
+						<img src="../static/images/newicon.gif" alt="new" class="pull-right"
+						style="margin-left: 10px;width: 30px; object-fit: contain;">
+						</a>
+					</li>
+				{% endfor %}
+			</marquee>
+		</div>
+	  </div>
+	  <div class="card">
+		<div class="card-body">
+		  <h3 class="card-title">Admission</h3>
+		</div>
+		<div>
+			<marquee class="ntf" width="100%" direction="up" height="200px" scrollamount="1">
+				{% for admm in adm %}
+					<li style="list-style-type: none;width: 80%;margin: auto;text-align: center;
+					margin-bottom: 10px;">
+						<a href="{{url_for('data.get_pdf',pdf=admm.doc_link)}}" target="_blank"
+						style="color: #6091c1;font-family: 'Open Sans', 'Helvetica Neue', sans-serif;font-weight: 600;
+						text-decoration: none;font-size: 16px;display:inline-flex">{{admm.title}}
+						<img src="../static/images/newicon.gif" alt="new" class="pull-right"
+						style="margin-left: 10px;width: 30px; object-fit: contain;">
+						</a>
+					</li>
+				{% endfor %}
+			</marquee>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+	<!-- BANNER 2 -->
+    <div class="container-fluid text-center mt-5 pt-12">
+		<h3>Important Links</h3>
+		<div class="hrule"></div>
+		<div class="imp-links">
+			<h5 class="imp">
+				<a href="/syllabus" target="_blank">
+					Syllabus
+				</a>
+			</h5>
+			<h5 class="imp">
+				<a href="/assignment" target="_blank">
+					Assignment
+				</a>
+			</h5>
+			<h5 class="imp">
+				<a href="pdf/prospectus.pdf" target="_blank">
+					Prospectus
+				</a>
+			</h5>
+		</div>
+	</div>
+
+
+	<!-- Testimonials -->
+	
+{% endblock %}

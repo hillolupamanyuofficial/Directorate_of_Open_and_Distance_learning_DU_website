@@ -1,0 +1,245 @@
+{% extends 'layout2.html' %}
+{% from "macros.html" import pdf_section_formatter %}
+{% from "macros_2.html" import pdf_subsection_formatter %}
+
+
+{% block content %}
+
+<div class="w-full flex mx-auto py-8">
+    <div class="w-1/2 sm:full">
+        <div class="recog w-3/4 mx-auto mt-24">
+            <h3 class="my-8">UG Semester Assignments</h3>
+            <h5>
+                <a href="pdf/BA_General_Internal_Assignment_1st_Semester.pdf" target="_blank">
+                    BA General Internal Assignment (1st Semester)
+                </a>
+            </h5>
+            <h5>
+                <a href="pdf/BA_Hons_in_Assamese_Internal_Assignment_1st_Sem.pdf" target="_blank">
+                    BA Hons in Assamese Internal Assignment (1st Semester)
+                </a>
+            </h5>
+            <h5>
+                <a href="pdf/BA_in_Economics_Hons_Internal_Assignment_1st_Semester.pdf" target="_blank">
+                    BA Hons in Economics Internal Assignment (1st Semester)
+                </a>
+            </h5>
+            <h5>
+                <a href="pdf/BA_in_Political_Science_Hons_Internal_Assignment_1st_Semester.pdf" target="_blank">
+                    BA Hons in Political Science Internal Assignment (1st Semester)
+                </a>
+            </h5>
+            <h5>
+                <a href="pdf/BA_in_Sociology_Hons_Internal_Assignment_1st_Semester.pdf" target="_blank">
+                    BA Hons in Sociology Internal Assignment (1st Semester)
+                </a>
+            </h5>
+            <h5>
+                <a href="pdf/BCOM_Assignment_questions_1st_Semester.pdf" target="_blank">
+                    BCOM Assignment Questions (1st Semester)
+                </a>
+            </h5>
+            <h5>
+                <a href="pdf/BCA_1st_sem_Home_Assignment.pdf" target="_blank">
+                    BCA Home Assignment (1st Semester)
+                </a>
+            </h5>
+        </div>
+    </div>
+    <div class="w-1/2 sm:full">
+        <div class="recog w-3/4 mx-auto mt-24">
+            <h3 class="my-8">PG Semester Assignments</h3>
+            <h5>
+                <a href="pdf/MA_in_Assamese_Home_Assignment_1st_Semester.pdf" target="_blank">
+                    MA in Assamese Internal Assignment (1st Semester)
+                </a>
+            </h5>
+            <h5>
+                <a href="pdf/MA in Economics Home Assignment (1st Semester).pdf" target="_blank">
+                    MA in Economics Internal Assignment (1st Semester)
+                </a>
+            </h5>
+            <h5>
+                <a href="pdf/MA in Education Home Assignment (1st Semester).pdf" target="_blank">
+                    MA in Education Internal Assignment (1st Semester)
+                </a>
+            </h5>
+            <h5>
+                <a href="pdf/MA in English Home Assignment (1st Semester).pdf" target="_blank">
+                    MA in English Internal Assignment (1st Semester)
+                </a>
+            </h5>
+            <h5>
+                <a href="pdf/MA in Pol science Home Assignment (1st Semester).pdf" target="_blank">
+                    MA in Pol Science Internal Assignment (1st Semester)
+                </a>
+            </h5>
+            <h5>
+                <a href="pdf/MA in Sociology Home Assignment (1st Semester).pdf" target="_blank">
+                    MA in Sociology Internal Assignment (1st Semester)
+                </a>
+            </h5>
+            <h5>
+                <a href="pdf/MA_M.SC Maths. Home Assignment (1st Semester).pdf" target="_blank">
+                    MA_M.SC Maths. Internal Assignment (1st Semester)
+                </a>
+            </h5>
+            <h5>
+                <a href="pdf/MCom Home Assignment (1st Semester).pdf" target="_blank">
+                    MCom Internal Assignment (1st Semester)
+                </a>
+            </h5>
+            <h5>
+                <a href="pdf/PGDCA.pdf" target="_blank">
+                    PGDCA (Backlog)
+                </a>
+            </h5>
+        </div>
+    </div>
+</div>
+<div class="w-full flex mx-auto py-8">
+    <!-- UG SEMESTER ASSIGNMENTS FINAL -->
+    {{ pdf_section_formatter('UG Assignment (Annual Mode)', 
+        pdf_subsection_formatter(
+            'BA_Economics_Hons_Part_IAssignment_Questions_Annual_Mode.pdf',
+            'BA Economics Hons Part I Assignment Questions Annual Mode'
+        ),
+        pdf_subsection_formatter(
+            'BA_Economics_Hons_Part_II_Assignment_Questions_Annual_Mode.pdf',
+            'BA Economics Hons Part II Assignment Questions Annual Mode'
+        ),
+        pdf_subsection_formatter(
+            'BA_Economics_Hons_Part_III_Assignment_Questions_Annual_Mode.pdf',
+            'BA Economics Hons Part III Assignment Questions Annual Mode'
+        ),
+        pdf_subsection_formatter(
+            'BA_Sociology_HonsPart_IAssignmnt_Questions_Annual_Mode.pdf',
+            'BA Sociology HonsPart IAssignmnt Questions Annual Mode'
+        ),
+        pdf_subsection_formatter(
+            'BA_Sociology_HonsPart_II_Assignmnt_Questions_Annual_Mode.pdf',
+            'BA Sociology HonsPart II Assignmnt Questions Annual Mode'
+        ),
+        pdf_subsection_formatter(
+            'BA_Sociology_HonsPart_III_Assignmnt_Questions_Annual_Mode.pdf',
+            'BA Sociology HonsPart III Assignmnt Questions Annual Mode'
+        ),
+        pdf_subsection_formatter(
+            'BAPol_Science_Hons_Part_I_Assignment_Questions_Annual_Mode.pdf',
+            'BAPol Science Hons Part I Assignment Questions Annual Mode'
+        ),
+        pdf_subsection_formatter(
+            'BAPol_Science_Hons_Part_II_Assignment_Questions_Annual_Mode.pdf',
+            'BAPol Science Hons Part II Assignment Questions Annual Mode'
+        ),
+        pdf_subsection_formatter(
+            'BAPol_Science_Hons_Part_III_Assignment_Questions_Annual_Mode.pdf',
+            'BAPol Science Hons Part III Assignment Questions Annual Mode'
+        ),
+        pdf_subsection_formatter(
+            'BA_Assamese_HonsPart_I_Assignment_Questions_Annual_Mode.pdf',
+            'BA Assamese HonsPart I Assignment Questions Annual Mode'
+        ),
+        pdf_subsection_formatter(
+            'BA_Assamese_HonsPart_II_Assignment_Questions_Annual_Mode.pdf',
+            'BA Assamese HonsPart II Assignment Questions Annual Mode'
+        ),
+        pdf_subsection_formatter(
+            'BA_Assamese_HonsPart_III_Assignment_Questions_Annual_Mode.pdf',
+            'BA Assamese HonsPart III Assignment Questions Annual Mode'
+        ),
+        pdf_subsection_formatter(
+            'B_Com_Part_I_assignment_questions_2021_Annual_Mode.pdf',
+            'BCom Part I assignment questions 2021 Annual Mode'
+        ),
+        pdf_subsection_formatter(
+            'B_Com_Part_II_assignment_questions_2021_Annual_Mode.pdf',
+            'BCom Part II assignment questions 2021 Annual Mode'
+        ),
+        pdf_subsection_formatter(
+            'B_Com_Part_III_assignment_questions_2021_Annual_Mode.pdf',
+            'BCom Part III assignment questions 2021 Annual Mode'
+        )
+    )}}
+
+
+    <!-- PG SEMESTER ASSIGNMENTS FINAL -->
+    {{ pdf_section_formatter('PG Assignment (Annual Mode)', 
+        pdf_subsection_formatter(
+            'Mathematics_Assignment_Questions_Previous_Year.pdf',
+            'Mathematics Assignment Questions Previous Year'
+        ),
+        pdf_subsection_formatter(
+            'Mathematics_Final_YearAssignment_Questions_2020_21.pdf',
+            'Mathematics Final Year Assignment Questions 2020-21'
+        ),
+        pdf_subsection_formatter(
+            'M_Com_Assignment_Questions_Previous_Year.pdf',
+            'MCom Assignment Questions Previous Year'
+        ),
+        pdf_subsection_formatter(
+            'M_Com_Final_Year_Home_Assignment_Questions_2020_21.pdf',
+            'MCom Final Year Home Assignment Questions 2020-21'
+        ),
+        pdf_subsection_formatter(
+            'MA_Assamese_Assignment_Questions_Previous_Year.pdf',
+            'MA Assamese Assignment Questions Previous Year'
+        ),
+        pdf_subsection_formatter(
+            'MAAssamese_Final_YearAssignment_Questions_2020_21.pdf',
+            'MA Assamese Final Year Assignment Questions 2020-21'
+        ),
+        pdf_subsection_formatter(
+            'MA_Economics_Assignment_Questions_Prev_Yr2021.pdf',
+            'MA Economics Assignment Questions Previous Year'
+        ),
+        pdf_subsection_formatter(
+            'MAEconomics_Final_Year_Assignment_Questions_2020_21.pdf',
+            'MA Economics Final Year Assignment Questions 2020-21'
+        ),
+        pdf_subsection_formatter(
+            'MA_Education_Assignment_Questions_Previous_Year.pdf',
+            'MA Education Assignment Questions Previous Year'
+        ),
+        pdf_subsection_formatter(
+            'MAEducation_Final_YearAssignment_Questions_2021.pdf',
+            'MA Education Final Year Assignment Questions 2021'
+        ),
+        pdf_subsection_formatter(
+            'MA_ENGLISH_Assignment_Questions_Previous_Year.pdf',
+            'MA English Assignment Questions Previous Year'
+        ),
+        pdf_subsection_formatter(
+            'MAEnglish_Final_YearAssignment_Questions_2020_21.pdf',
+            'MA English Final Year Assignment Questions 2020_21'
+        ),
+        pdf_subsection_formatter(
+            'MA_in_Sociology_Assignment_Qustions_Prev_Yr2020_21.pdf',
+            'MA Sociology Assignment Questions Previous Year'
+        ),
+        pdf_subsection_formatter(
+            'MASociology_Final_YearAssignment_Questions_2020_21.pdf',
+            'MA Sociology Final Year Assignment Questions 2020_21'
+        ),
+        pdf_subsection_formatter(
+            'MA_Political_Science_Assignment_Questions_Previous_Year.pdf',
+            'MA Political Science Assignment Questions Previous Year'
+        ),
+        pdf_subsection_formatter(
+            'MAPolitical_Science_Final_year_Assignment_Questions_2020_21.pdf',
+            'MA Political Science Final Year Assignment Questions 2020_21'
+        ),
+        pdf_subsection_formatter(
+            'PGDJMC.pdf',
+            'PGDJMC (Backlog)'
+        ),
+        pdf_subsection_formatter(
+            'PGDMM.pdf',
+            'PGDMM (Backlog)'
+        )
+    )}}
+</div>
+
+
+
+{% endblock %}

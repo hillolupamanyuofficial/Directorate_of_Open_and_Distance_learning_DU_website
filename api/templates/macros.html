@@ -1,0 +1,10 @@
+{% macro pdf_section_formatter(title) %}
+<div class="md:w-1/2 sm:w-full">
+    <div class="recog w-3/4 mx-auto mt-24">
+        <h3 class="my-8">{{ title }}</h3>
+        {% for subsection in varargs %}
+            {{ subsection }}
+        {% endfor %}
+    </div>
+</div>
+{% endmacro %}

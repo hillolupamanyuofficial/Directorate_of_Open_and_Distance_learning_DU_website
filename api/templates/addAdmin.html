@@ -1,0 +1,75 @@
+{% extends 'layout.html' %}
+{% block content %}
+<section class="text-gray-500 body-font relative main-section">
+    <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-12">
+            <h1 class="header" >ADD ADMIN</h1>
+        </div>
+        <form method='POST' action="/admin/add">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class='{% if category == "success" %} w-3/4 mx-auto mb-4 p-2 border-2 border-green-900 rounded text-green-900 bg-green-400 font-bold opacity-50
+                    {% else %}
+                    w-3/4 mx-auto mb-4 p-2 border-2 border-red-900 rounded text-red-900 bg-red-400 font-bold opacity-50
+                    {% endif %}
+                    
+                    '>{{ message }}</li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+            {% endwith %}
+            <div class="lg:w-1/4 md:w-1/3 mx-auto">
+                <div class="flex flex-wrap -m-2">
+                    <div class="p-2 w-full">
+                    <div class="relative">
+                        <input type="text" 
+                        id="username" name="username"
+                        placeholder="Username" 
+                        class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    </div>
+                    </div>
+                    <div class="p-2 w-full">
+                    <div class="relative">
+                        <input type="password" 
+                        id="password" name="password" 
+                        placeholder="Password"
+                        class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                    </div>
+                    </div>
+                    <div class="p-2 w-full">
+                    <button class="w-full flex justify-center mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" style="background-color: #008dc1d1;">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<!--ADMIN LIST SECTION-->
+<section class="text-gray-500 body-font overflow-hidden" style="background-color: #000;">
+    <div class="container px-5 py-24 mx-auto">
+        <div class="w-full mx-auto mb-20 text-3xl text-center">
+            Admin List
+        </div>
+        <div class="-my-8">
+            {% for admin in admins %}
+            <div class="w-3/4 mx-auto flex flex-wrap md:flex-no-wrap hover:bg-gray-800 ">
+                <div class="w-full mx-auto flex justify-around py-8 border-b-2 border-gray-600 hover:bg-gray-800 px-20">
+                    <div class="md:flex-grow">
+                        <h2 class="text-2xl font-medium text-white title-font mb-2">{{admin.username}}</h2>
+                    </div>
+                    <div class="px-10">
+                        <a href="{{ url_for('admin.admin_delete',admin_id=admin.admin_id) }}">
+                            <button class="inline-flex items-center bg-red-600 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base text-white mt-4 md:mt-0">Delete
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+      </div>
+    </div>
+</section>
+<!--ADMIN LIST SECTION END-->
+{% endblock %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Directorate of Open and Distance Learning Dibrugarh University</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="Directorate of Open and Distance Learning Dibrugarh University | Dibrugarh University">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="../static/assets/favicon.svg">
+        <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+        <link href="../static/css/addMembers.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <section class="text-gray-500 body-font relative main-section">
+            <div class="container px-5 py-24 mx-auto">
+                <div class="flex flex-row justify-center w-full mb-12">
+                    <img src="../static/images/logoUniversityWhite.png" style="width: 250px;object-fit: contain;">
+                </div>
+                <form method='POST' action="/admin/login">
+                  {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                      <ul class="flashes">
+                      {% for category, message in messages %}
+                        <li class='{% if category == "error" %} w-1/2 mx-auto mb-4 p-2 border-2 border-red-900 rounded text-red-900 bg-red-400 font-bold opacity-50
+                        {% endif %}
+                        '>{{ message }}</li>
+                      {% endfor %}
+                      </ul>
+                    {% endif %}
+                  {% endwith %}
+                    <div class="lg:w-1/4 md:w-1/3 mx-auto">
+                        <div class="flex flex-wrap -m-2">
+                          <div class="p-2 w-full">
+                            <div class="relative">
+                              <input type="text" 
+                              id="username" name="username"
+                              placeholder="Username" 
+                              class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                          </div>
+                          <div class="p-2 w-full">
+                            <div class="relative">
+                              <input type="password" 
+                              id="password" name="password" 
+                              placeholder="Password"
+                              class="w-full bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                          </div>
+                          <div class="p-2 w-full">
+                            <button class="w-full flex mx-auto text-white justify-center border-0 py-2 px-8 focus:outline-none rounded text-lg" style="background-color: #008dc1d1;">Login</button>
+                          </div>
+                        </div>
+                      </div>
+                </form>
+            </div>
+        </section>
+    </body>
+</html>
